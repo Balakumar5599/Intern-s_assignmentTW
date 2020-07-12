@@ -10,6 +10,7 @@ file=open("my_file.txt","r")
 print(file.readline())
 print(file.readline())
 print(file.readline())
+file.close()
 
 #My output is look like
 '''
