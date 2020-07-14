@@ -27,12 +27,12 @@ class Time:
         print("Addition of time1 and time2:")
         print("{} hours and {} minutes\n".format(self.total_minutes//60,self.total_minutes%60))
         
-    def sub(self):
+    def diff_of_time(self):
 
         print("Difference between time1 and time2:")
         print("{} hours and {} minutes\n".format(self.diff_time//60,self.diff_time%60))
 
-    def total(self):
+    def time_in_mins(self):
 
         print("Total Time in minutes")
         print("{} minutes".format(self.total_minutes))
@@ -44,8 +44,8 @@ time_obj=Time(time1,time2)
 try:
     time_obj.set_time()
     time_obj.add_two_time()
-    time_obj.sub()
-    time_obj.total()
+    time_obj.diff_of_time()
+    time_obj.time_in_mins()
 except:
     print("Enter the input in correct format")
     print("Eg: x hours and y minutes")
