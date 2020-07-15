@@ -19,7 +19,7 @@ def rad_of_neptune():
     print("The Radius of planet Neptune is:",neptune.diameter/2,"km\n")
 
 def days_in_jupiter():
-    print("Number of days in Jupiter is:",jupiter.length_year,"days\n")
+    print("Number of days in Jupiter is:",round(float(jupiter.length_year)),"days\n")
 
 def largest_planet():
     l=[]
