@@ -9,16 +9,19 @@ class Planet:
         self.diameter=diameter
         self.no_of_moons=no_of_moons
         self.length_year=length_year
+            
+    def planet_radius(self):
+        
+        print("The Radius of planet "+ self.planet_name+" is:",self.diameter/2,"km\n")
+        
+    def days_in_planet(self):
+        
         if "earth year" in self.length_year:
             self.length_year=str(float(self.length_year.split()[0])*Planet.one_earth_year)
         else:
             self.length_year=self.length_year.split()[0]
             
-    def planet_radius(self):
-        print("The Radius of planet Neptune is:",self.diameter/2,"km\n")
-        
-    def days_in_planet(self):
-        print("Number of days in Jupiter is:",round(float(self.length_year)),"days\n")
+        print("Number of days in "+self.planet_name+" is:",round(float(self.length_year)),"days\n")
 
 
 def largest_planet():
