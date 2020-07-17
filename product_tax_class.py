@@ -8,10 +8,19 @@ class Product:
 
     def common_tax(self):
         if self.price>=500:
-            self.tax_price=self.price*0.05
+            self.normal_tax=self.price*0.05
         else:
-            self.tax_price=self.price*0.02
-        return self.tax_price
+            self.normal_tax=self.price*0.02
+        return self.normal_tax
+    
+    def special_tax(self):
+        if self.category=="textile":
+            self.special_tax=self.price*0.01
+        elif self.category=="dairy" and self.price>1000:
+            self.special_tax=self.price*0.03
+        else:
+            self.special_tax=0
+        return self.special_tax
         
         
 def total_tax():
@@ -20,19 +29,11 @@ def total_tax():
     overall_tax=0
     
     for prod in product_list:
+        tot_tax=Product.common_tax(prod)+Product.special_tax(prod)
+        print("Tax amount of "+prod.name+": Rs."+str(tot_tax),"--->Total price of "+prod.name+": Rs.",prod.price+tot_tax)
         
-        if prod.category=="textile":
-            total_tax=Product.common_tax(prod)+prod.price*0.01
-            print("Tax amount of "+prod.name+": Rs."+str(total_tax),"--->Total price of "+prod.name+": Rs.",prod.price+total_tax)
-        elif prod.category=="dairy" and prod.price>1000:
-            total_tax=Product.common_tax(prod)+prod.price*0.03
-            print("Tax amount of "+prod.name+": Rs."+str(total_tax),"--->Total price of "+prod.name+": Rs.",prod.price+total_tax)
-        else:
-            total_tax=Product.common_tax(prod)
-            print("Tax amount of "+prod.name+": Rs."+str(Product.common_tax(prod)),"--->Total price of "+prod.name+": Rs.",prod.price+total_tax)
-            
-        overall_bill+=prod.price+total_tax
-        overall_tax+=total_tax
+        overall_bill+=prod.price+tot_tax
+        overall_tax+=tot_tax
         
     print()    
     print("Overall Tax Amount: Rs.",overall_tax,"\n")
