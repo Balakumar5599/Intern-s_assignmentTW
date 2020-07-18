@@ -7,11 +7,13 @@ class Product:
         self.category=category
 
     def common_tax(self):
-        if self.price>=500:
-            self.normal_tax=self.price*0.05
-        else:
-            self.normal_tax=self.price*0.02
-        return self.normal_tax
+        if self.category!="dairy"
+            if self.price>=500:
+                self.normal_tax=self.price*0.05
+            else:
+                self.normal_tax=self.price*0.02
+            return self.normal_tax
+        return 0
     
     def special_tax(self):
         if self.category=="textile":
@@ -124,18 +126,18 @@ Enter the product name: saree
 Enter the product price: 2000
 Enter the product category: textile
 
-Tax amount of icecream: Rs.6.0 --->Total price of icecream: Rs. 306.0
+Tax amount of icecream: Rs.0 --->Total price of icecream: Rs. 300.0
 Tax amount of pant: Rs.48.0 --->Total price of pant: Rs. 848.0
 Tax amount of tomato: Rs.3.0 --->Total price of tomato: Rs. 153.0
 Tax amount of table: Rs.70.0 --->Total price of table: Rs. 1470.0
-Tax amount of chocolate: Rs.120.0 --->Total price of chocolate: Rs. 1620.0
+Tax amount of chocolate: Rs.45.0 --->Total price of chocolate: Rs. 1545.0
 Tax amount of potato: Rs.4.0 --->Total price of potato: Rs. 204.0
 Tax amount of shirt: Rs.36.0 --->Total price of shirt: Rs. 636.0
 Tax amount of chair: Rs.45.0 --->Total price of chair: Rs. 945.0
-Tax amount of milk: Rs.2.0 --->Total price of milk: Rs. 102.0
+Tax amount of milk: Rs.0 --->Total price of milk: Rs. 100.0
 Tax amount of saree: Rs.120.0 --->Total price of saree: Rs. 2120.0
 
-Overall Tax Amount: Rs. 454.0 
+Overall Tax Amount: Rs. 371.0 
 
-Overall Bill Amount: Rs.(Incl.of all taxes) 8404.0
+Overall Bill Amount: Rs.(Incl.of all taxes) 8361.0
 '''
