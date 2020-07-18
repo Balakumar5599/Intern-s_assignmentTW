@@ -7,11 +7,11 @@ class IceCream:
     def menu_card(self):
 
         print("*****Menu Card*****\n")
-        global d
-        d={}
+        global ice_dict
+        ice_dict={}
         for typ,typ_cost in self.types.items():
             for flav,flav_cost in self.flavours.items():
-                d[typ+flav]=typ_cost+flav_cost
+                ice_dict[typ+flav]=typ_cost+flav_cost
                 print(typ,flav,"Icecream:",typ_cost+flav_cost)
 
 class ChocolateIce(IceCream):
@@ -39,17 +39,17 @@ def chocolate():
     if option=="yes":
         topp_inp=input("\nEnter anyone of the topping options: ").lower().replace(" ","")
         if topp_inp in icecream.toppings.keys():
-            print("\nTotal cost of "+ice_input+" is:",quantity*(d[ref_inp]+icecream.toppings[topp_inp]))
+            print("\nTotal cost of "+ice_input+" is:",quantity*(ice_dict[ref_inp]+icecream.toppings[topp_inp]))
         else:
             print("\n-----Please enter the proper topping option-----")
             chocolate()
     else:
-        print("\nTotal cost for "+ice_input+" is:",quantity*(d[ref_inp]))
+        print("\nTotal cost for "+ice_input+" is:",quantity*(ice_dict[ref_inp]))
         
 if "chocolate" in ref_inp:
     chocolate()
 elif "chocolate" not in ref_inp:
-    print("\nTotal cost for "+ice_input+" is:",quantity*(d[ref_inp]))
+    print("\nTotal cost for "+ice_input+" is:",quantity*(ice_dict[ref_inp]))
 else:
     print("\nPlease enter proper input")
     
