@@ -41,10 +41,10 @@ dept1=Dept1("ECE",["Bala","Barath","Dhanesh","Gogul","Mani"],["EC1","ED","M1","P
 dept2=Dept2("Mechanical",["Balaji","Dinesh","Maari","poo","Sivaguru"],["M1","Physics","Mechanics","CAT","Chemistry"])
 dept3=Dept3("Biomedical",["Ajith","Ranjan","Santhosh","Surya","Varatharajan"],["Bio tech","Physics","Chemistry","Medical","Cardio"])
 
-stud1=Student("ECE",1,"bala",["ed","m1","phy","ec1"])
-stud2=Student("Mechanical",1,"poo",["phy","m1","mechanics"])
-stud3=Student("Biomedical",1,"surya",["bio","che","med","cario"])
-stud4=Student("ECE",1,"dhanesh",["ed","phy","m1"])
+stud1=Student("ECE",1,"Bala",["ED","M1","Physics","EC1"])
+stud2=Student("Mechanical",1,"Poo",["Physics","M1","Mechanics"])
+stud3=Student("Biomedical",1,"Surya",["Bio tech","Chemistry","Medical","Cardio"])
+stud4=Student("ECE",1,"Dhanesh",["ED","Physics","M1"])
 
 def overlap():
 
@@ -52,7 +52,7 @@ def overlap():
     print("Subjects that are overlap btw various departments:\n",list(overlap_sub))
 
 overlap()
-dept1.display()
+dept1.display()       #Just change the obj name here, for which department student names you want.
 
 stud_list=[stud1,stud2,stud3,stud4]
 print("Name of the departments, where students take more than 3 courses: ")
