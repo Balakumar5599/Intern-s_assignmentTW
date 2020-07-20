@@ -21,7 +21,7 @@ def topping():
     for name,cost in toppings.items():
         print(name,":",cost)
               
-    def chocolate():
+    def topping_option():
               
         option=input("\nDo u want any topping for ur chocolate icecream ?Type(Yes/No): ").lower()
         if option=="yes":
@@ -33,10 +33,10 @@ def topping():
                     print("\nPlease enter the icecream only in the Menu card")
             else:
                 print("\n-----Please enter the proper topping option-----")
-                chocolate()
+                topping_option()
         else:
             print("\nTotal cost for "+ice_input+" is:",quantity*(ice_dict[ref_inp]))
-    chocolate()
+    topping_option()
 
 icecream=IceCream({"stick":20,"cone":30,"cup":40},{"chocolate":40,"vanilla":35,"strawberry":45})
 icecream.menu_card()
