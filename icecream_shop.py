@@ -33,13 +33,14 @@ class IceCream:
 
 def menu_card():
     
-    print("*****Menu Card*****\n")
+    print("\n**************Menu Card**************")
+    print("\nTYPE\t\tFLAVOUR\t\tCOST\n")
     global ice_dict
     ice_dict={}
     for typ,typ_cost in icecream.types.items():
         for flav,flav_cost in icecream.flavours.items():
             ice_dict[typ+flav]=typ_cost+flav_cost
-            print(typ,flav,"Icecream:",typ_cost+flav_cost)    
+            print(typ,"\t",flav,"Icecream:","\tRs."+str(typ_cost+flav_cost))    
 
 icecream=IceCream({"stick":20,"cone":30,"cup":40},{"chocolate":40,"vanilla":35,"strawberry":45},{"chocochips":15,"caramel":20,"nuts":25})
 menu_card()
