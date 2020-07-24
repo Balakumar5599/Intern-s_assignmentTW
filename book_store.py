@@ -4,6 +4,9 @@ class Author:
         self.author_name=author_name
         self.author_age=author_age
         self.nationality=nationality
+        
+    def get_author_name(self):
+        return self.author_name
 
 class Book:
 
@@ -15,9 +18,6 @@ class Book:
     def get_book_name(self):
         return self.book_name
 
-    def get_author_name(self):
-        return self.author.author_name
-
 class BookWorld:
     
     def __init__(self,book_obj):
@@ -28,7 +28,7 @@ class BookWorld:
         self.aff_books=dict()
         for book in book_obj:
             if book.book_price<1000:
-                self.aff_books[book.get_book_name()]=book.get_author_name()
+                self.aff_books[book.get_book_name()]=book.author.get_author_name()
         return self.aff_books
 
     def calc_print_book_price(self):
@@ -39,7 +39,7 @@ class BookWorld:
 def print_num_of_books_of_author():
     author_name_list=[]
     for book in book_obj:
-        author_name_list.append(book.get_author_name().lower().strip())
+        author_name_list.append(book.author.get_author_name().lower().strip())
     print("The total number of books written by "+aut_name+":",author_name_list.count(aut_name))
         
     
