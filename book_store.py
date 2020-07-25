@@ -21,7 +21,7 @@ class Book:
     def get_book_name(self):
         
         return self.book_name
-
+    
 class BookWorld:
     
     def __init__(self,book_obj):
@@ -41,6 +41,12 @@ class BookWorld:
         print("Price of all the books in the store:\n")
         for book in book_obj:
             print(book.get_book_name()+"-\t","Rs."+str(book.book_price))
+            
+    def print_affortable_book_and_author_name(self):
+    
+        print("\nBook name and Author name of all affortable price:\n")
+        for book_name,author_name in self.calc_affortable_price().items():
+            print(book_name,":",author_name)
 
 def print_num_of_books_of_author():
     
@@ -49,13 +55,7 @@ def print_num_of_books_of_author():
         author_name_list.append(book.author.get_author_name().lower().strip())
     print("The total number of books written by "+aut_name+":",author_name_list.count(aut_name))
         
-def print_affortable_book_and_author_name():
-    
-    print("\nBook name and Author name of all affortable price:\n")
-    for book_name,author_name in book_shop.calc_affortable_price().items():
-        print(book_name,":",author_name)
         
-
 guido=Author("Guido van rossum",64,"Dutch")
 martin=Author("Martin Odersky",61,"German")
 james=Author("James Gosling",65,"Canadian")
@@ -74,7 +74,7 @@ book_obj=[python,scala,java,c,c_plus,generic_java]
 book_shop=BookWorld(book_obj)
 
 book_shop.calc_print_book_price()
-print_affortable_book_and_author_name()
+book_shop.print_affortable_book_and_author_name()
 aut_name=input("\nEnter the author name: ").lower().strip()
 print_num_of_books_of_author()
 
