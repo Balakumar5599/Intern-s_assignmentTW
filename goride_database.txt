@@ -1,0 +1,42 @@
+create schema goride_registration;
+
+create table goride_registration.cardetails(
+
+car_id numeric primary key,
+car_category text not null,
+number numeric not null,
+colour text not null,
+company text not null,
+model text not null
+
+);
+
+
+create table goride_registration.driverdetails(
+
+driver_id numeric primary key,
+name text not null
+age numeric not null check(age>20),
+license_number not null
+validity_date date not null
+
+);
+
+
+create schema Booking;
+
+create table Booking.vehicle(
+
+vehicle_id primary key,
+name text not null,
+km_range text not null,
+price numeric not null,
+want_ac_or_not text not null,
+max_people numeric not null
+
+);
+
+insert into Booking.vehicle values(1,"auto","upto 15km",10,"no",3),(2,"auto","15-30km",8,"no",3),
+(3,"auto","30 and above",15,"no",3),(4,"micro","upto 15km",12,"yes",4),(5,"micro","upto 15km",14,"no",4),
+(6,"micro","15 and above",10,"yes",4)(7,"micro","15 and above",12,"no",4)(8,"xl","upto 15km",14,"yes",10)
+(9,"xl","upto 15km",15,"no",10),(10,"xl","15 and above",14,"yes",10),(11,"xl","15 and above",15,"no",10);
