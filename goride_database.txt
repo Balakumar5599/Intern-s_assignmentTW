@@ -36,6 +36,13 @@ max_people numeric not null
 
 );
 
+create table Booking.user_input(
+
+category text not null,
+ac_or_not text not null
+
+);
+
 insert into Booking.vehicle values(1,"auto","upto 15km",10,"no",3),(2,"auto","15-30km",8,"no",3),
 (3,"auto","30 and above",15,"no",3),(4,"micro","upto 15km",12,"yes",4),(5,"micro","upto 15km",14,"no",4),
 (6,"micro","15 and above",10,"yes",4)(7,"micro","15 and above",12,"no",4)(8,"xl","upto 15km",14,"yes",10)
