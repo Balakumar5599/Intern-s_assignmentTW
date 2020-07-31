@@ -1,4 +1,21 @@
-class CarDetail:
+import re
+
+class Driver:
+    
+    def __init__(self,name,age,license_num,validity_date):
+        self.name=name
+        self.age=age
+        self.license_num=license_num
+        self.validity_date=validity_date
+
+    def get_driver_detail(self):
+        self.driver_detail="Driver name is "+self.name+", Age is "+str(self.age)+",license number is "+self.license_num+" and validity period is "+self.validity_date
+        return self.driver_detail
+    
+class Car:
+    
+    max_micro=4
+    max_xl=10
     
     def __init__(self,category,number,colour,company,model):
         self.category=category
@@ -10,87 +27,97 @@ class CarDetail:
     def get_car_detail(self):
         self.car_details="Car category is "+self.category+", Number is "+self.number+",colour is "+self.colour+", Company is "+self.company+" and model is "+self.model
         return self.car_details
-    
 
-class DriverDetail:
-    
-    def __init__(self,name,age,lic_num,valid_date):
-        self.name=name
-        self.age=age
-        self.lic_num=lic_num
-        self.valid_date=valid_date
-
-    def get_driver_detail(self):
-        self.driver_detail="Driver name is "+self.name+", Age is "+str(self.age)+",license number is "+self.lic_num+" and validity period is "+self.valid_date
-        return self.driver_detail
-
-class GoRide:
-    
-    max_micro=4
-    max_xl=10
-
-    def __init__(self):
-        
-        self.car_obj=car_obj
-        self.driver_obj=driver_obj
-        
-    def registration(self):
-        register_list=[]
-        register_list.append(self.car_obj.get_car_detail())
-        register_list.append(self.driver_obj.get_driver_detail())
-        return register_list
-    
-    def display_registration_status(self):
-        if len(driver_name)>0:
-            print("Congratulation!!!You are successfully registered in GoRide")
-        else:
-            print("You are not sucessfully registered in GoRide")
             
-print("\n*************************Welcome To GoRide*************************")
-print("-Micro includes all cars that can accommodate a maximum upto 4 people")
-print("-XL includes all cars that can accommodate a maximum upto 10 people")
+def goride_registration():
+    
+    print("*****Welcome To GoRide*****")
+    print("\n*****Driver Registration*****\n")
+    
+    driver_name=input("Enter the your Name: ")
+
+    while True:
+        driver_age=input("Enter the your Age: ")
+        if re.match(r"(2)[0-9]",driver_age):
+            break
+        else:
+            print("you are not eligible")
         
-car_category=input("\nEnter the category of the car: ")
-car_num=input("Enter the car number: ")
-car_colour=input("Enter the car colour: ")
-car_company=input("Enter the car company name: ")
-model=input("Enter the car model: ")
-car_obj=CarDetail(car_category,car_num,car_colour,car_company,model)
+    while True:
+        driver_license=input("Enter the your license Number: ")
+        if re.match(r"([A-Z]{2}[0-9]{2}(19|20)[0-9][0-9])([0-9]{7})",driver_license):
+            break
+        else:
+            print("License number is not Valid")
+            
+    while True:
+        driver_license_validity=input("Enter the your license Validity: ")
+        if re.match(r"(0?[1-9]|[12][0-9]|3[01])[-](0?[1-9]|1[012])[-]((19|20)[0-9]{2})$",driver_license_validity):
+            break
+        else:
+            print("Enter Valid Expiry date")
 
-driver_name=input("\nEnter the driver name: ")
-driver_age=int(input("Enter the driver age: "))
-driver_license_num=input("Enter the driver license number: ")
-driver_license_validity=input("Enter the driver license validity time: ")
-driver_obj=DriverDetail(driver_name,driver_age,driver_license_num,driver_license_validity)
-goride=GoRide()
+    print("\n***** Car Registration*****")
+    
+    while True:
+        car_category=input("\nEnter the car Category(micro or xl): ")
+        if car_category=='micro' or car_category=='xl':
+            break
+        else:
+            print("Enter valid category")
+            
+    while True:
+        car_number=input("Enter the Car Number: ")
+        if re.match(r"^[A-Z]{2}\s[0-9]{2}\s[A-Z]{2}\s[0-9]{4}$",car_number):
+            break
+        else:
+            print("Enter valid Car Number")
+            
+    car_color=input("Enter the Car Color: ")
+    car_company=input("Enter the Car Company: ")
+    car_model=input("Enter the car model: ")
 
-print()
+    driver_obj=Driver(driver_name,driver_age,driver_license,driver_license_validity)
+    car_obj=Car(car_category,car_number,car_color,car_company,car_model)
 
-for details in goride.registration():
-    print(details,"\n")
-goride.display_registration_status()
+    return driver_obj.get_driver_detail(),car_obj.get_car_detail()
+
+driver_detail,car_detail=goride_registration()
+
+def store_registration_details():
+    
+    registered_details=[]
+    registered_details.append(driver_detail)
+    registered_details.append(car_detail)
+    return registered_details
+
+print()    
+print(store_registration_details())
+print("\nSuccessfully registered!!!")
 
 '''
+
 output:-
 
-*************************Welcome To GoRide*************************
--Micro includes all cars that can accommodate a maximum upto 4 people
--XL includes all cars that can accommodate a maximum upto 10 people
+*****Welcome To GoRide*****
 
-Enter the category of the car: micro
-Enter the car number: TN 06 AN 9315
-Enter the car colour: yellow
-Enter the car company name: BMW
+*****Driver Registration*****
+
+Enter the your Name: bala
+Enter the your Age: 23
+Enter the your license Number: TN1420200000606
+Enter the your license Validity: 06-07-2022
+
+***** Car Registration*****
+
+Enter the car Category(micro or xl): xl
+Enter the Car Number: TN 07 AS 9315
+Enter the Car Color: blue
+Enter the Car Company: aadi
 Enter the car model: A5
 
-Enter the driver name: Bala
-Enter the driver age: 23
-Enter the driver license number: MH134564566556778
-Enter the driver license validity time: 06-07-2022
+['Driver name is bala, Age is 23,license number is TN1420200000606 and validity period is 06-07-2022', 'Car category is xl, Number is TN 07 AS 9315,colour is blue, Company is aadi and model is A5']
 
-Car category is micro, Number is TN 06 AN 9315,colour is yellow, Company is BMW and model is A5 
+Successfully registered!!!
 
-Driver name is Bala, Age is 23,license number is MH134564566556778 and validity period is 06-07-2022 
-
-Congratulation!!!You are successfully registered in GoRide
 '''
