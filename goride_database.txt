@@ -2,39 +2,39 @@ create schema goride;
 
 create table goride.vehicle_type(
 
-vehicle_id numeric not null
-vehicle_name text not null
+vehicle_id numeric not null,
+vehicle_name text not null,
 primary key(vechicle_id)
 
 );
 
 create table goride.vehicle_price(
 
-vehicle_type numeric foreign key(vehicle_id) references vehicle_type(vehicle_id)
-min_range numeric not null
-max_range numercic not null
-price_ac numeric not null
+vehicle_type numeric foreign key(vehicle_id) references vehicle_type(vehicle_id),
+min_range numeric not null,
+max_range numercic not null,
+price_ac numeric not null,
 price_non_ac mumeric not null
 
 );
 
 create table goride.vehicle_detail(
 
-id numeric primary key
-vehicle_type numeric foreign key(vehicle_id) references vehicle_type(vehicle_id)
-name text not null
-colour text not null
-company text not null
+id numeric primary key,
+vehicle_type numeric foreign key(vehicle_id) references vehicle_type(vehicle_id),
+name text not null,
+colour text not null,
+company text not null,
 model text not null
 
 );
 
 create table goride.driver(
 
-id numeric primary key
-name text not null
-age numeric not null check(age>23)
-license_num text not null
+id numeric primary key,
+name text not null,
+age numeric not null check(age>23),
+license_num text not null,
 validity_date date not null
 
 );
